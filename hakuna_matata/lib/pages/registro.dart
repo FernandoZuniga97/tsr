@@ -1,4 +1,3 @@
-import 'package:hakuna_matata/routes/myroutes.dart';
 import 'package:flutter/material.dart';
 
 class Registro extends StatelessWidget {
@@ -79,7 +78,7 @@ class Registro extends StatelessWidget {
                         maxLength: 20,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'La contraseña es obligatoria';
+                            return 'La confirmación de la contraseña es obligatoria';
                           }
                           else if (confipasswordController.text != passwordController.text) {
                             return 'Las contraseñas no coinciden';

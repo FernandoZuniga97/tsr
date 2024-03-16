@@ -1,4 +1,3 @@
-import 'package:hakuna_matata/routes/myroutes.dart';
 import 'package:flutter/material.dart';
 
 class Start extends StatelessWidget {

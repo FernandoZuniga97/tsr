@@ -10,17 +10,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+      debugShowCheckedModeBanner: false,
       title: 'Material App',
-      // home: HomePage(),
+      
       initialRoute: MyRoutes.home.name,
       routes: routes,
+      
       onGenerateRoute: (settings) {
         return MaterialPageRoute(
+          
           builder: (context) => PageNotFound(name: settings.name),
+          
         );
+        
       },
+      
     );
+    
   }
+  
 }
 
 class PageNotFound extends StatelessWidget {

@@ -105,7 +105,7 @@ class Custompass extends StatefulWidget {
     this.obscureText = false,
   });
   final TextEditingController controller;
-  bool obscureText;
+  final bool obscureText;
 
   @override
   State<Custompass> createState() => _CustomInputState();

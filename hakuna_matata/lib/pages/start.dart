@@ -34,25 +34,41 @@ static const List<Map<String, dynamic>> chats = [
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: chats.length,
-      itemBuilder: (context, index) {
-        if (chats.isEmpty) {
-          return const Center(
-            child: Text('No hay chats'),
-          );
-        }
-
-        return ItemChat(
-          nombre: chats[index]['nombre']!,
-          mensaje: chats[index]['mensaje']!,
-          hora: chats[index]['hora']!,
-          foto: chats[index]['foto'],
-        );
-      },
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Chats'),
+        ),
+        body: Column(
+          children:[
+            Expanded(
+            child: ListView.builder(
+          itemCount: chats.length,
+          itemBuilder: (context, index) {
+            if (chats.isEmpty) {
+              return const Center(
+                child: Text('No hay chats'),
+              );
+            }
+        
+            return ItemChat(
+              nombre: chats[index]['nombre']!,
+              mensaje: chats[index]['mensaje']!,
+              hora: chats[index]['hora']!,
+              foto: chats[index]['foto'],
+            );
+          },
+        ),
+              )
+          ]
+        )
+      ),
     );
   }
 }
+
+
 
 class ItemChat extends StatelessWidget {
   const ItemChat({

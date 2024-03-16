@@ -6,9 +6,7 @@ class Home extends StatelessWidget {
   
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final nombreController = TextEditingController();
-  final apellidoController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +37,15 @@ class Home extends StatelessWidget {
             PrimaryButton(
               text: 'iniciar sesion',
               onPressed: () {
-                // * Navegación a otra pantalla
+                if (emailController.text.isEmpty || passwordController.text.isEmpty ||  emailController.text != 'fzunigao@unah.hn' || passwordController.text != '123' ) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('El correo o/y la contraseña son incorrectos.')));
+                  return; //const SnackBar(content: Text('Los campos no pueden estar vacios'));
+                }else if( emailController.text == 'fzunigao@unah.hn' && passwordController.text == '123'){
                 Navigator.pushNamed(context, MyRoutes.start.name);
+                }
+                
+                
               },
             ),
             SecondaryButton(

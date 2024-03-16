@@ -7,6 +7,6 @@ import 'package:flutter/material.dart';
 
 final Map<String, Widget Function(BuildContext)> routes = {
   MyRoutes.home.name: (context) =>  Home(),
-  MyRoutes.registro.name: (context) => const Registro(),
+  MyRoutes.registro.name: (context) =>  Registro(),
   MyRoutes.start.name: (context) => const Start(),
 };

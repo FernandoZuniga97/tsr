@@ -15,7 +15,7 @@ class Registro extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Registro', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
-        backgroundColor: const Color.fromARGB(255, 97, 12, 167),
+        backgroundColor: const Color.fromRGBO(49, 39, 79, 1)
       ),
       body:  Padding(
           padding: const EdgeInsets.all(16.0),
@@ -111,24 +111,46 @@ class Registro extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
-              ],
-            ),
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            if (formKey.currentState!.validate()) {
+                ),
+                SecondaryButton(
+                text: ' Registrarse',
+                onPressed: () {
+                if (formKey.currentState!.validate()) {
               print('Nombre: ' + nombreController.text);
               print('Email: ' +emailController.text);
               print('Contraseña: ' +passwordController.text);
-              print('Telefono: ' +telController.text);ScaffoldMessenger.of(context).showSnackBar(
+              print('Telefono: ' +telController.text);
+              ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Se registro exitosamente!')),
-            );
-            }
-          },
-          child: const Icon(Icons.clear),
-        )
+              );
+    }
+    },
+    ),
+              ],
+            ),
+          ),
+          
+        ),
+        
+    );
+  }
+}
+
+
+class SecondaryButton extends StatelessWidget {
+  const SecondaryButton({super.key, required this.text, this.onPressed});
+  final String text;
+  final Function()? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: TextButton.styleFrom(
+        foregroundColor: Colors.white,
+        backgroundColor: const Color.fromRGBO(49, 39, 79, 1),
+      ),
+      onPressed: onPressed,
+      child: Text(text),
     );
   }
 }

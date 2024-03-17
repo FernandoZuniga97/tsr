@@ -107,7 +107,7 @@ class Home extends StatelessWidget {
         },
       ),
       SecondaryButton(
-        text: ' Registro',
+        text: 'Registrate ahora',
         onPressed: () {
           Navigator.pushNamed(context, MyRoutes.registro.name);
     },

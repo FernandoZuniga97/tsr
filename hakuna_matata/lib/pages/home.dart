@@ -65,7 +65,7 @@ class Home extends StatelessWidget {
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      const Text("Login", style: TextStyle(color: Color.fromRGBO(49, 39, 79, 1), fontWeight: FontWeight.bold, fontSize: 30)),
+      const Text("Alcatraz Login", style: TextStyle(color: Color.fromRGBO(49, 39, 79, 1), fontWeight: FontWeight.bold, fontSize: 30)),
       const SizedBox(height: 30),
       Container(
         padding: const EdgeInsets.all(10),
@@ -76,7 +76,7 @@ class Home extends StatelessWidget {
         ),
         child: TextField(
           controller: emailController,
-          maxLength: 30,
+          maxLength: 60,
           keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(
             labelText: 'Email',
@@ -87,12 +87,12 @@ class Home extends StatelessWidget {
         ),
       ),
       Container(
-  padding: const EdgeInsets.all(10),
-  child: Custompass(
-    controller: passwordController,
-    obscureText: true,
-  ),
-),
+        padding: const EdgeInsets.all(10),
+        child: Custompass(
+          controller: passwordController,
+          obscureText: true,
+          ),
+      ),
       PrimaryButton(
         text: 'Iniciar sesión',
         onPressed: () {
@@ -176,10 +176,10 @@ class _CustomInputState extends State<Custompass> {
       keyboardType: TextInputType.text,
       obscureText: obscureText,
       decoration: InputDecoration(
-        label: const Text('Password'),
-        border: const UnderlineInputBorder(),
+        label: const Text('Password'),   
         labelStyle: const TextStyle(color: Colors.purple),
-        prefixIcon: const Icon(Icons.lock),
+        icon: const Icon(Icons.lock),
+        border: const UnderlineInputBorder(),
         suffixIcon: IconButton(
             onPressed: () {
               setState(() {

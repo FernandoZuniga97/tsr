@@ -31,70 +31,130 @@ class Start extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
+    return PopScope( 
       canPop: false,
       child: DefaultTabController(
         length: 4,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Chats', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
-            backgroundColor: const Color.fromARGB(255, 97, 12, 167),
-            elevation: 0,
-            bottom: const TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.message), text: 'Mensajes'),
-                Tab(icon: Icon(Icons.access_time), text: 'Activos'),
-                Tab(icon: Icon(Icons.call), text: 'Llamadas'),
-                Tab(icon: Icon(Icons.group), text: 'Grupos'),
-              ],
-              labelColor: Color.fromARGB(255, 255, 254, 255),
-              unselectedLabelColor: Color.fromARGB(255, 0, 0, 0), 
+  title: const Row(
+    children: [
+      FlutterLogo(),
+      SizedBox(width: 10.0),
+      Text('Chats', style: TextStyle(color: Colors.white)),
+    ],
+  ),
+  backgroundColor: const Color.fromARGB(255, 97, 12, 167),
+  elevation: 0,
+),
+  body: Column(
+  children: [
+    Row(
+      children: [
+        InkWell(
+          onTap: () 
+          {
+          },
+          child: const Icon(Icons.search),
+        ),
+        const Expanded(
+          child:  TextField(
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              hintText: 'Search',
+              border:OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(50.0)),
+              ),
             ),
           ),
-          body: ListView.builder(
-            itemCount: chats.length,
-            itemBuilder: (context, index) {
-              if (chats.isEmpty) {
-                return const Center(
-                  child: Text('No hay chats'),
-                );
-              }  
-              return ItemChat(
-                nombre: chats[index]['nombre']!,
-                mensaje: chats[index]['mensaje']!,
-                hora: chats[index]['hora']!,
-                foto: chats[index]['foto'],
-              );
-            },
-          ),
-          bottomNavigationBar: BottomAppBar(
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                IconButton(
-                  icon: const Icon(Icons.home),
-                  onPressed: () {
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.add),
-                  onPressed: () {
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.person),
-                  onPressed: () {
-                  },
-                ),
-              ],
+        ),
+      ],
+    ),
+    Expanded(
+      child: ListView.builder(
+        itemCount: chats.length,
+        itemBuilder: (context, index) {
+          if (chats.isEmpty) {
+            return const Center(
+              child: Text('No hay chats'),
+            );
+          }
+          return ItemChat(
+            nombre: chats[index]['nombre']!,
+            mensaje: chats[index]['mensaje']!,
+            hora: chats[index]['hora']!,
+            foto: chats[index]['foto'],
+          );
+        },
+      ),
+    ),
+  ],
+),
+
+  bottomNavigationBar: BottomAppBar(
+  color: Colors.white,
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children:[
+      SizedBox(
+        width: 50,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.message),
+              onPressed: () {
+              },
             ),
-          ),
+            const Text('Chats', style: TextStyle(fontSize: 10)),
+          ],
+        ),
+      ),
+      SizedBox(
+        width: 50,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.video_call),
+              onPressed: () {
+              },
+            ),
+            const Text('Calls', style: TextStyle(fontSize: 10)),
+          ],
+        ),
+      ),
+      SizedBox(
+        width: 50,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.group),
+              onPressed: () {
+              },
+            ),
+            const Text('People', style: TextStyle(fontSize: 10)),
+          ],
+        ),
+      ),
+      SizedBox(
+        width: 50,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.pages),
+              onPressed: () {
+              },
+            ),
+            const Text('Pages', style: TextStyle(fontSize: 10)),
+          ],
+        ),
+      ),
+    ],
+  ),
+),
         ),
       ),
     );

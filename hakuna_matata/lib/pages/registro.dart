@@ -37,7 +37,7 @@ class Registro extends StatelessWidget {
                         },
                         keyboardType: TextInputType.text,
                         decoration: const InputDecoration(
-                          label: Text('Nombre'),
+                          label: Text('Nombre Completo'),
                           icon: Icon(Icons.person),
                           border: OutlineInputBorder(),
                         ),

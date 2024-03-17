@@ -112,10 +112,17 @@ class Registro extends StatelessWidget {
                     ],
                   ),
                 ),
-                SecondaryButton(
-                text: ' Registrarse',
-                onPressed: () {
-                if (formKey.currentState!.validate()) {
+                
+    
+              ],
+            
+            ),
+          ),
+          
+        ),
+        floatingActionButton:  SecondaryButton(text: 'Registrarse',
+         onPressed: (){
+            if (formKey.currentState!.validate()) {
               print('Nombre: ' + nombreController.text);
               print('Email: ' +emailController.text);
               print('Contraseña: ' +passwordController.text);
@@ -123,15 +130,9 @@ class Registro extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Se registro exitosamente!')),
               );
-    }
-    },
-    ),
-              ],
-            ),
-          ),
-          
-        ),
-        
+            }
+         }),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

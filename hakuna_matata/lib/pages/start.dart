@@ -37,6 +37,7 @@ class Start extends StatelessWidget {
         length: 4,
         child: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
   title: const Row(
     children: [
       FlutterLogo(),
@@ -44,7 +45,7 @@ class Start extends StatelessWidget {
       Text('Chats', style: TextStyle(color: Colors.white)),
     ],
   ),
-  backgroundColor: const Color.fromARGB(255, 97, 12, 167),
+  backgroundColor: const Color.fromRGBO(49, 39, 79, 1),
   elevation: 0,
 ),
   body: Column(
@@ -102,11 +103,10 @@ class Start extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: const Icon(Icons.message),
+              icon: const Icon(Icons.message, size: 30),
               onPressed: () {
               },
             ),
-            const Text('Chats', style: TextStyle(fontSize: 10)),
           ],
         ),
       ),
@@ -116,11 +116,10 @@ class Start extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: const Icon(Icons.video_call),
+              icon: const Icon(Icons.video_call, size: 30),
               onPressed: () {
               },
             ),
-            const Text('Calls', style: TextStyle(fontSize: 10)),
           ],
         ),
       ),
@@ -130,11 +129,10 @@ class Start extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: const Icon(Icons.group),
+              icon: const Icon(Icons.group, size: 30),
               onPressed: () {
               },
             ),
-            const Text('People', style: TextStyle(fontSize: 10)),
           ],
         ),
       ),
@@ -144,11 +142,10 @@ class Start extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: const Icon(Icons.pages),
+              icon: const Icon(Icons.pages, size: 30),
               onPressed: () {
               },
             ),
-            const Text('Pages', style: TextStyle(fontSize: 10)),
           ],
         ),
       ),

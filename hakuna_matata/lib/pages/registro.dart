@@ -14,7 +14,8 @@ class Registro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Registro'),
+        title: Center(child: const Text('Registro', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),)),
+        backgroundColor: const Color.fromARGB(255, 97, 12, 167),
       ),
       body:  Padding(
           padding: const EdgeInsets.all(16.0),
@@ -22,7 +23,7 @@ class Registro extends StatelessWidget {
             child: Column(
               children: [
                 Form(
-                  key: formKey, // identificador del formulario "controller"
+                  key: formKey,
                   child: Column(
                     children: [
                       TextFormField(
@@ -96,7 +97,7 @@ class Registro extends StatelessWidget {
                         controller: telController,
                         maxLength: 10,
                         validator: (value) {
-                          if (value!.isEmpty) {
+                          if (value!.isEmpty ) {
                             return 'El numero es obligatorio';
                           }
                           return null;
@@ -121,14 +122,13 @@ class Registro extends StatelessWidget {
               print('Nombre: ' + nombreController.text);
               print('Email: ' +emailController.text);
               print('Contraseña: ' +passwordController.text);
-              print('Telefono: ' +telController.text);
-              //TODO: LOGICA PARA GUARDAR LOS DATOS
+              print('Telefono: ' +telController.text);ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Se registro exitosamente!')),
+            );
             }
           },
           child: const Icon(Icons.clear),
         )
     );
   }
-
-      
 }

@@ -10,22 +10,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
-      title: 'Material App',
-      
+      title: 'Alcatraz',
       initialRoute: MyRoutes.home.name,
-      routes: routes,
-      
+      routes: routes,    
       onGenerateRoute: (settings) {
         return MaterialPageRoute(
-          
           builder: (context) => PageNotFound(name: settings.name),
-          
         );
-        
       },
-      
     );
     
   }
@@ -34,9 +27,7 @@ class MyApp extends StatelessWidget {
 
 class PageNotFound extends StatelessWidget {
   const PageNotFound({super.key, required this.name});
-
   final String? name;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +40,7 @@ class PageNotFound extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacementNamed(context, MyRoutes.home.name);
               },
-              child: const Text('Ir a la página principal'),
+              child: const Text('Ir al home'),
             ),
           ],
         ),

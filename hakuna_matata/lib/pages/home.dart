@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   Home({super.key,});
-  
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +56,7 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 )
-                //
-                
-                //
               ],
-              
             ),
           ),
           //
@@ -74,43 +68,40 @@ class Home extends StatelessWidget {
       const Text("Login", style: TextStyle(color: Color.fromRGBO(49, 39, 79, 1), fontWeight: FontWeight.bold, fontSize: 30)),
       const SizedBox(height: 30),
       Container(
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          decoration: const BoxDecoration(
-            border: Border(bottom: BorderSide(
-              color: Color.fromRGBO(196, 135, 198, .3)
-            ))
-          ),
-          child: TextField(
-            controller: emailController,
-            maxLength: 30,
-            keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-              labelText: 'Email',
-              labelStyle: TextStyle(color: Colors.purple),
-              icon: Icon(Icons.email),
-              border: UnderlineInputBorder(),
-            ),
+        padding: const EdgeInsets.all(10),
+        decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(
+            color: Color.fromRGBO(196, 135, 198, .3)
+          ))
+        ),
+        child: TextField(
+          controller: emailController,
+          maxLength: 30,
+          keyboardType: TextInputType.emailAddress,
+          decoration: const InputDecoration(
+            labelText: 'Email',
+            labelStyle: TextStyle(color: Colors.purple),
+            icon: Icon(Icons.email),
+            border: UnderlineInputBorder(),
           ),
         ),
       ),
       Container(
   padding: const EdgeInsets.all(10),
-  
   child: Custompass(
     controller: passwordController,
     obscureText: true,
   ),
 ),
       PrimaryButton(
-        text: 'iniciar sesion',
+        text: 'Iniciar sesión',
         onPressed: () {
           if (emailController.text.isEmpty || passwordController.text.isEmpty ||  emailController.text != 'fzunigao@unah.hn' || passwordController.text != '123' ) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('El correo o/y la contraseña son incorrectos.')),
             );
             return;
-          } else if( emailController.text == 'fzunigao@unah.hn' && passwordController.text == '123'){
+          } else if( emailController.text == 'fzunigao@unah.hn' && passwordController.text == '20212030191'){
             Navigator.pushNamed(context, MyRoutes.start.name);
           } 
         },
@@ -118,26 +109,21 @@ class Home extends StatelessWidget {
       SecondaryButton(
         text: ' Registro',
         onPressed: () {
-          // * Navegación a otra pantalla y reemplazar
-          //* la pila de navegación
           Navigator.pushNamed(context, MyRoutes.registro.name);
-        },
-      ), 
-    ],
-  ),
-),
+    },
+    ), 
     ],
     ),
-      )
+    ),
+    ],
+    ),
+    )
     );
-  }
-}
-
-// *  Otros widgets
+    }
+    }
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({super.key, required this.text, this.onPressed});
-
   final String text;
   final Function()? onPressed;
 
@@ -146,8 +132,8 @@ class PrimaryButton extends StatelessWidget {
     return ElevatedButton( 
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
-        backgroundColor:  const Color.fromRGBO(49, 39, 79, 1), // color de fondo
-        foregroundColor: Colors.white, // color de texto
+        backgroundColor:  const Color.fromRGBO(49, 39, 79, 1),
+        foregroundColor: Colors.white,
       ),
       onPressed: onPressed,
       child: Text(text),
@@ -157,7 +143,6 @@ class PrimaryButton extends StatelessWidget {
 
 class SecondaryButton extends StatelessWidget {
   const SecondaryButton({super.key, required this.text, this.onPressed});
-
   final String text;
   final Function()? onPressed;
 
@@ -186,9 +171,7 @@ class _CustomInputState extends State<Custompass> {
   bool obscureText = true;
   @override
   Widget build(BuildContext context) {
-  
     return TextField(
-      
       controller: widget.controller,
       keyboardType: TextInputType.text,
       obscureText: obscureText,

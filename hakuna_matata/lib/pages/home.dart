@@ -96,7 +96,7 @@ class Home extends StatelessWidget {
       PrimaryButton(
         text: 'Iniciar sesión',
         onPressed: () {
-          if (emailController.text.isEmpty || passwordController.text.isEmpty ||  emailController.text != 'fzunigao@unah.hn' || passwordController.text != '123' ) {
+          if (emailController.text.isEmpty || passwordController.text.isEmpty ||  emailController.text != 'fzunigao@unah.hn' || passwordController.text != '20212030191' ) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('El correo o/y la contraseña son incorrectos.')),
             );
@@ -177,6 +177,7 @@ class _CustomInputState extends State<Custompass> {
       obscureText: obscureText,
       decoration: InputDecoration(
         label: const Text('Password'),
+        border: const UnderlineInputBorder(),
         labelStyle: const TextStyle(color: Colors.purple),
         prefixIcon: const Icon(Icons.lock),
         suffixIcon: IconButton(
@@ -186,7 +187,6 @@ class _CustomInputState extends State<Custompass> {
               }); 
             },
             icon: Icon( obscureText ? Icons.visibility : Icons.visibility_off)),
-        border: const UnderlineInputBorder(),
       ),
     );
   }

@@ -14,7 +14,7 @@ class Registro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: const Text('Registro', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),)),
+        title: const Text('Registro', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
         backgroundColor: const Color.fromARGB(255, 97, 12, 167),
       ),
       body:  Padding(

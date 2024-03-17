@@ -31,66 +31,69 @@ class Start extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Chats', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
-          backgroundColor: const Color.fromARGB(255, 97, 12, 167),
-          elevation: 0,
-          bottom: const TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.message), text: 'Mensajes'),
-              Tab(icon: Icon(Icons.access_time), text: 'Activos'),
-              Tab(icon: Icon(Icons.call), text: 'Llamadas'),
-              Tab(icon: Icon(Icons.group), text: 'Grupos'),
-            ],
-            labelColor: Color.fromARGB(255, 255, 254, 255),
-            unselectedLabelColor: Color.fromARGB(255, 0, 0, 0), 
+    return PopScope(
+      canPop: false,
+      child: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Chats', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
+            backgroundColor: const Color.fromARGB(255, 97, 12, 167),
+            elevation: 0,
+            bottom: const TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.message), text: 'Mensajes'),
+                Tab(icon: Icon(Icons.access_time), text: 'Activos'),
+                Tab(icon: Icon(Icons.call), text: 'Llamadas'),
+                Tab(icon: Icon(Icons.group), text: 'Grupos'),
+              ],
+              labelColor: Color.fromARGB(255, 255, 254, 255),
+              unselectedLabelColor: Color.fromARGB(255, 0, 0, 0), 
+            ),
           ),
-        ),
-        body: ListView.builder(
-          itemCount: chats.length,
-          itemBuilder: (context, index) {
-            if (chats.isEmpty) {
-              return const Center(
-                child: Text('No hay chats'),
+          body: ListView.builder(
+            itemCount: chats.length,
+            itemBuilder: (context, index) {
+              if (chats.isEmpty) {
+                return const Center(
+                  child: Text('No hay chats'),
+                );
+              }  
+              return ItemChat(
+                nombre: chats[index]['nombre']!,
+                mensaje: chats[index]['mensaje']!,
+                hora: chats[index]['hora']!,
+                foto: chats[index]['foto'],
               );
-            }  
-            return ItemChat(
-              nombre: chats[index]['nombre']!,
-              mensaje: chats[index]['mensaje']!,
-              hora: chats[index]['hora']!,
-              foto: chats[index]['foto'],
-            );
-          },
-        ),
-        bottomNavigationBar: BottomAppBar(
-          color: Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.home),
-                onPressed: () {
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.add),
-                onPressed: () {
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.person),
-                onPressed: () {
-                },
-              ),
-            ],
+            },
+          ),
+          bottomNavigationBar: BottomAppBar(
+            color: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.home),
+                  onPressed: () {
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.search),
+                  onPressed: () {
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.add),
+                  onPressed: () {
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.person),
+                  onPressed: () {
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

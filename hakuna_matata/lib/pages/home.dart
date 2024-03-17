@@ -13,122 +13,122 @@ class Home extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Center( child: Text('Login')),
-        backgroundColor: Colors.green,
-      ),
       body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-              height: 400,
-              child: Stack(
-                children: <Widget>[
-                  Positioned(
-                    top: -40,
-                    height: 400,
-                    width: width,
-                    child:Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/background.png'),
-                          fit: BoxFit.fill
-                        )
-                      ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+            height: 400,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: -40,
+                  height: 400,
+                  width: width,
+                  child:Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/background.png'),
+                        fit: BoxFit.fill
+                      )
                     ),
                   ),
-                  Positioned(
-                    height: 400,
-                    width: width+20,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/background-2.png'),
-                          fit: BoxFit.fill
-                        )
-                      ),
+                ),
+                Positioned(
+                  height: 400,
+                  width: width+20,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/background-2.png'),
+                        fit: BoxFit.fill
+                      )
                     ),
                   ),
-                  Positioned(
-                    height: 400,
-                    width: width+20,
-                    child:Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/background-2.png'),
-                          fit: BoxFit.fill
-                        )
-                      ),
+                ),
+                Positioned(
+                  height: 400,
+                  width: width+20,
+                  child:Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/background-2.png'),
+                        fit: BoxFit.fill
+                      )
                     ),
-                  )
-                ],
-              ),
-            ),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                          decoration: const BoxDecoration(
-                            border: Border(bottom: BorderSide(
-                              color: Color.fromRGBO(196, 135, 198, .3)
-                            ))
-                          ),
-                  child: TextField(
-                        controller: emailController,
-                        maxLength: 30,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
-                          label: Text('Email'),
-                          labelStyle: TextStyle(color: Colors.purple),
-                          icon: Icon(Icons.email),
-                          border: UnderlineInputBorder(),
-                          
-                        ),
-                      ),
-          ),
-                      //custom pa que sea privado
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                          border: Border(bottom: BorderSide(
-                            color: Color.fromRGBO(196, 135, 198, .3)
-                          ))
-                        ),
-                      child: Custompass(
-                        controller: passwordController,
-                        obscureText: true,
-                      ),
-                      ),
-                  PrimaryButton(
-                    text: 'iniciar sesion',
-                    onPressed: () {
-                      if (emailController.text.isEmpty || passwordController.text.isEmpty ||  emailController.text != 'fzunigao@unah.hn' || passwordController.text != '123' ) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('El correo o/y la contraseña son incorrectos.')));
-                        return; //const SnackBar(content: Text('Los campos no pueden estar vacios'));
-                      }else if( emailController.text == 'fzunigao@unah.hn' && passwordController.text == '123'){
-                      Navigator.pushNamed(context, MyRoutes.start.name);
-                      }
-                      
-                      
-                    },
                   ),
-                  SecondaryButton(
-                    text: ' Registro',
-                    onPressed: () {
-                      // * Navegación a otra pantalla y reemplazar
-                      //* la pila de navegación
-                      Navigator.pushNamed(context, MyRoutes.registro.name);
-                    },
-                  ),       
-            ]
-               // 
+                )
+                //
+                
+                //
+              ],
               
-                  
-            //
+            ),
+          ),
+          //
+          Padding(
+  padding: const EdgeInsets.symmetric(horizontal: 40),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      const Text("Login", style: TextStyle(color: Color.fromRGBO(49, 39, 79, 1), fontWeight: FontWeight.bold, fontSize: 30)),
+      const SizedBox(height: 30),
+      Container(
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+            border: Border(bottom: BorderSide(
+              color: Color.fromRGBO(196, 135, 198, .3)
+            ))
+          ),
+          child: TextField(
+            controller: emailController,
+            maxLength: 30,
+            keyboardType: TextInputType.emailAddress,
+            decoration: const InputDecoration(
+              labelText: 'Email',
+              labelStyle: TextStyle(color: Colors.purple),
+              icon: Icon(Icons.email),
+              border: UnderlineInputBorder(),
+            ),
           ),
         ),
       ),
+      Container(
+  padding: const EdgeInsets.all(10),
+  
+  child: Custompass(
+    controller: passwordController,
+    obscureText: true,
+  ),
+),
+      PrimaryButton(
+        text: 'iniciar sesion',
+        onPressed: () {
+          if (emailController.text.isEmpty || passwordController.text.isEmpty ||  emailController.text != 'fzunigao@unah.hn' || passwordController.text != '123' ) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('El correo o/y la contraseña son incorrectos.')),
+            );
+            return;
+          } else if( emailController.text == 'fzunigao@unah.hn' && passwordController.text == '123'){
+            Navigator.pushNamed(context, MyRoutes.start.name);
+          } 
+        },
+      ),
+      SecondaryButton(
+        text: ' Registro',
+        onPressed: () {
+          // * Navegación a otra pantalla y reemplazar
+          //* la pila de navegación
+          Navigator.pushNamed(context, MyRoutes.registro.name);
+        },
+      ), 
+    ],
+  ),
+),
+    ],
+    ),
+      )
     );
   }
 }
@@ -171,7 +171,7 @@ class SecondaryButton extends StatelessWidget {
 }
 
 class Custompass extends StatefulWidget {
-  Custompass({super.key,
+  const Custompass({super.key,
   required this.controller,
     this.obscureText = false,
   });
